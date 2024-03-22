@@ -46,6 +46,11 @@ RSpec.describe '#add_string' do
   it 'returns the sume of numbers for strings with custom delimeter' do
     expect(add_string("//;\n1;2;3")).to eq(6)
   end
+
+  it 'raises an exception for negative numbers' do
+    expect { add_string('1,-2,3') }.to raise_error('negative numbers not allowed -2')
+    expect { add_string('1,-2,-3') }.to raise_error('negative numbers not allowed -2, -3')
+  end
 end
 
 RSpec.describe '#get_delimeter' do
