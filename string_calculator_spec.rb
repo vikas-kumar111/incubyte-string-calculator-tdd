@@ -24,12 +24,22 @@ RSpec.describe '#add' do
   it 'returns nil for each item in array which is not string' do
     expect(add(['', '1', '1,5', 1, 'a'])).to eq([0, 1, 6, nil, 0])
   end
+end
+
+RSpec.describe '#add_string' do
+  it 'returns the sum of numbers for comma-separated strings' do
+    expect(add_string('1,5')).to eq(6)
+  end
 
   it 'returns the sum of numbers for strings with new lines between numbers' do
-    expect(add(['1\n2,3'])).to eq([6])
+    expect(add_string('1\n2,3')).to eq(6)
   end
 
   it 'returns 0 for invalid input with new line following a comma' do
-    expect(add(['1,\n'])).to eq([0])
+    expect(add_string('1,\n')).to eq(0)
+  end
+
+  it 'returns nil for invalid input' do
+    expect(add_string(1)).to eq(nil)
   end
 end
