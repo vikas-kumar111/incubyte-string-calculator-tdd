@@ -14,5 +14,7 @@ def add_string(string)
 end
 
 def get_delimeter(string)
+  return string.split("\n").first[2..-1] if string.start_with?('//')
+
   ','
 end
