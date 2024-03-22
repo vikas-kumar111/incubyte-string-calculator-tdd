@@ -12,7 +12,13 @@ def add_string(string)
 
   delimeter = get_delimeter(string)
 
-  string.gsub(/(\n)(?!\z)/, delimeter).split(delimeter).map(&:to_i).sum
+  numbers = string.gsub(/(\n)(?!\z)/, delimeter).split(delimeter).map do |number|
+    number.to_i
+  end
+
+  raise "negative numbers not allowed #{numbers.select { |number| number < 0 }.join(', ')}" if numbers.any? { |number| number < 0 }
+
+  numbers.sum
 end
 
 def get_delimeter(string)
