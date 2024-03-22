@@ -42,6 +42,10 @@ RSpec.describe '#add_string' do
   it 'returns nil for invalid input' do
     expect(add_string(1)).to eq(nil)
   end
+
+  it 'returns the sume of numbers for strings with custom delimeter' do
+    expect(add_string("//;\n1;2;3")).to eq(6)
+  end
 end
 
 RSpec.describe '#get_delimeter' do
