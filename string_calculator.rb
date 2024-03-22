@@ -10,7 +10,9 @@ def add_string(string)
   return nil unless string.is_a?(String)
   return 0 if string.end_with?("\n")
 
-  string.gsub(/(\n)(?!\z)/, ',').split(',').map(&:to_i).sum
+  delimeter = get_delimeter(string)
+
+  string.gsub(/(\n)(?!\z)/, delimeter).split(delimeter).map(&:to_i).sum
 end
 
 def get_delimeter(string)
