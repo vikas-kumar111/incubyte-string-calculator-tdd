@@ -21,7 +21,15 @@ RSpec.describe '#add' do
     expect(add([1, 2, 3])).to eq([nil, nil, nil])
   end
 
-  it 'returns nil for each item in array which is not valid' do
+  it 'returns nil for each item in array which is not string' do
     expect(add(['', '1', '1,5', 1, 'a'])).to eq([0, 1, 6, nil, 0])
+  end
+
+  it 'returns the sum of numbers for strings with new lines between numbers' do
+    expect(add(['1\n2,3'])).to eq([6])
+  end
+
+  it 'returns 0 for invalid input with new line following a comma' do
+    expect(add(['1,\n'])).to eq([0])
   end
 end
