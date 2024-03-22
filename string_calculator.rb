@@ -8,6 +8,7 @@ end
 
 def add_string(string)
   return nil unless string.is_a?(String)
+  return 0 if string.end_with?("\n")
 
-  string.split(',').map(&:to_i).sum
+  string.gsub(/(\n)(?!\z)/, ',').split(',').map(&:to_i).sum
 end

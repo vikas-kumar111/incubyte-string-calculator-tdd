@@ -32,11 +32,11 @@ RSpec.describe '#add_string' do
   end
 
   it 'returns the sum of numbers for strings with new lines between numbers' do
-    expect(add_string('1\n2,3')).to eq(6)
+    expect(add_string("1\n2,3")).to eq(6)
   end
 
   it 'returns 0 for invalid input with new line following a comma' do
-    expect(add_string('1,\n')).to eq(0)
+    expect(add_string("1,\n")).to eq(0)
   end
 
   it 'returns nil for invalid input' do
