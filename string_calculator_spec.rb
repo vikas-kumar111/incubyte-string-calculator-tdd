@@ -1,0 +1,15 @@
+require_relative 'string_calculator'
+
+RSpec.describe '#add' do
+  it 'returns no output for an empty string' do
+    expect(add([])).to eq([])
+  end
+
+  it 'returns the number for a single number' do
+    expect(add(['1'])).to eq([1])
+  end
+
+  it 'returns the sum of numbers for comma-separated strings' do
+    expect(add(['', '1', '1,5'])).to eq([0, 1, 6])
+  end
+end
