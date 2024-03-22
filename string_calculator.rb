@@ -12,3 +12,7 @@ def add_string(string)
 
   string.gsub(/(\n)(?!\z)/, ',').split(',').map(&:to_i).sum
 end
+
+def get_delimeter(string)
+  ','
+end

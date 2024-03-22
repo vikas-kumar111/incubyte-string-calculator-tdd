@@ -43,3 +43,13 @@ RSpec.describe '#add_string' do
     expect(add_string(1)).to eq(nil)
   end
 end
+
+RSpec.describe '#get_delimeter' do
+  it 'returns comma for strings without delimeter' do
+    expect(get_delimeter('1,2,3')).to eq(',')
+  end
+
+  it 'returns the delimeter for strings with delimeter' do
+    expect(get_delimeter("//;\n1;2;3")).to eq(';')
+  end
+end
